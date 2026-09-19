@@ -1,6 +1,6 @@
 # 千牛小店获客增长 Skill
 
-> 🌐 Language: [中文](README.md) | [English](README.en.md)
+> 🌐 Language: [中文](README.md) | [English](README.en.md) ｜ 🏠 在线主页：[yuyang2230.github.io/taobao-shop-growth](https://yuyang2230.github.io/taobao-shop-growth/)
 >
 > 把「淘宝个人小店的获客优化」变成 AI 可以直接执行的标准流程：**诊断 → 商品提分 → 内容引流 → 自动化批量运营**。
 > 全部方法在一个真实在营的实验室仪器 C 店上完整跑通，结论均带 ✅ / ⚠️ / ❌ 实测标记，不是纸上谈兵。
