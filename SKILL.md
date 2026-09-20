@@ -1,6 +1,6 @@
 ---
 name: taobao-shop-growth
-description: 淘宝/千牛个人小店获客优化全流程技能。覆盖店铺诊断、标题重写、必填属性补全（消除"流量受限"的根因）、逛逛/问大家内容运营、站外GEO引流、免拍摄商品视频，以及用 AI（千牛商品管家 + 浏览器Agent + 定时任务）批量自动执行。适用于已登录千牛卖家中心的淘宝C店，尤其适合B2B高客单类目。English triggers: grow my Taobao shop / rewrite product titles / fill required attributes / batch-edit Qianniu products / shop diagnosis.
+description: 淘宝/千牛个人小店获客优化全流程技能。覆盖店铺诊断、标题重写、必填属性补全（消除"流量受限"的根因）、逛逛/问大家内容运营、站外GEO引流、站内AI搜索（千问）GEO优化、免拍摄商品视频，以及用 AI（千牛商品管家 + CDP直连/浏览器Agent + 定时任务）批量自动执行。适用于已登录千牛卖家中心的淘宝C店，尤其适合B2B高客单类目。English triggers: grow my Taobao shop / rewrite product titles / fill required attributes / batch-edit Qianniu products / Taobao AI search GEO / shop diagnosis.
 ---
 
 # 千牛小店获客增长
@@ -53,10 +53,11 @@ Phase 0 诊断 ──→ Phase 1 商品提分 ──→ Phase 2 内容获客 ─
 
 按 [references/04-content-traffic.md](references/04-content-traffic.md) 执行四条线：
 逛逛科普内容（站内免费流量）→ 详情页表格化+FAQ（承接 AI 导购）→ 站外 GEO 长文（被豆包/千问/DeepSeek 等 AI 搜索引用）→ 问大家/评价维护（信任层）。
+站内还有更近的 AI 入口——淘宝自己的 AI 搜索（千问购物助手）会直接摘引商品规格组答案、销量小也能被摘引，按 [references/08-geo-qianwen.md](references/08-geo-qianwen.md) 优化（⚠️ 改类目有"销量清零"红线）。
 
 ### Phase 3 · 批量自动化
 
-按 [references/05-automation.md](references/05-automation.md)：优先用千牛自带「商品管家」做对话式批量操作；浏览器 Agent + 视觉复核双通道处理商品管家覆盖不了的操作。护栏和坑都在该文档里。
+按 [references/05-automation.md](references/05-automation.md)：优先级 商品管家（官方批量）> CDP 直连（React 后台自动化的主力通道）> 浏览器 Agent 双通道 > 定时任务。护栏、React 四条铁律和坑都在该文档里。
 
 ### Phase 4 · 每周复盘
 
@@ -71,10 +72,12 @@ Phase 0 诊断 ──→ Phase 1 商品提分 ──→ Phase 2 内容获客 ─
 | 搜索访客常年个位数 | 标题重写（核心词前置+参数+场景） | 02 |
 | 手机推荐流不展示 | 补导购标题（≤15汉字） | 02 |
 | 高客单商品没人问 | 客服话术+FAQ+站外型号长文 | 04 / 06 / templates |
+| AI 搜索（千问）推荐里没你 / 想被摘引 | 标题吃需求词chips + FAQ块134~167字/条 + 可摘引短语独立成行 | 08 |
+| 商品挂错类目想改 | 停：跨一级类目=近30天销量清零；老链接不动，另发新链接挂正确类目 | 08 |
 | 成功页挂"缺少商品视频" | 免拍摄管线：主图→3D轮播/AI图生视频→QC→上传 | 07 |
-| 手动改不过来 | 商品管家批量 + Agent 自动化 | 05 |
+| 手动改不过来 | 商品管家批量 + CDP直连/Agent 自动化 | 05 |
 | 服务分偏低 | 旺旺响应速度人工提升（自动化做不了） | 01 |
 
 ## 案例与来源
 
-本技能的全部流程在一个真实在营的实验室仪器小店上验证（玻璃反应釜/旋转蒸发仪/磁力搅拌器，B2B 高客单类目），逐件执行记录见仓库 README 的案例节。标题前后对比、属性口径、客服话术模板均取自该店真实数据。商品视频免拍摄管线（主图→轮播/AI图生视频→QC→上传）同样在该店验证：首批 5 件一天内产出并全部提交成功，"缺少商品视频"逐项清零。
+本技能的全部流程在一个真实在营的实验室仪器小店上验证（玻璃反应釜/旋转蒸发仪/磁力搅拌器，B2B 高客单类目），逐件执行记录见仓库 README 的案例节。标题前后对比、属性口径、客服话术模板均取自该店真实数据。商品视频免拍摄管线（主图→轮播/AI图生视频→QC→上传）同样在该店验证：两批累计 9 件挂上视频并全部提交成功，"缺少商品视频"逐项清零。站内 GEO（千问 AI 搜索）优化亦在该店验证：重点商品核心词自然排名进入前 2~6。
