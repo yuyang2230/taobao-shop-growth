@@ -11,7 +11,7 @@ Most public "Taobao operations" content talks in concepts and gives no **executa
 
 This repo breaks down the day-to-day growth work of a small shop into SOPs an AI can follow, packaged as a skill for Claude Code / ZCode / Cursor and similar coding assistants. You say one line — "optimize all products in my store" — and the AI runs the diagnosis, rewrites titles, fills required attributes, and clears the "traffic restricted" flags, then reports back.
 
-## Eight field-tested findings (read these first)
+## Ten field-tested findings (read these first)
 
 1. **"Traffic restricted" is usually caused by empty required attributes, not the title.**
    The red **Error(N)** in the "Optimization Suggestion" panel on the product edit page mostly comes from required attribute fields (rated voltage, drive type, material…) being empty. Fill them and resubmit: the "traffic restricted" notice on the success page disappears. Field-tested to be *more* effective than title rewrites. → [references/03-attributes.md](references/03-attributes.md)
@@ -37,6 +37,12 @@ This repo breaks down the day-to-day growth work of a small shop into SOPs an AI
 8. **For React admin pages, CDP direct connection beats coordinate-clicking.**
    After lock screen / RDP disconnect, screenshot+coordinate schemes fail **silently**; connectOverCDP needs no window focus and reads real DOM state. Four iron rules: locator.fill instead of native setters, real locator clicks instead of el.click(), insertText for long CJK text, hide overlay layers before clicking. → [references/05-automation.md](references/05-automation.md)
 
+9. **When a Guanghe (Taobao content) post gets rejected, it is usually the images, not the copy.**
+   Only two rejection reasons exist in practice: "excessive marketing/commercial information" (brand name + spec lists + in-stock + delivery-time + customer-service funnel — any one is high risk) and "aesthetics below standard" (tiled store watermark on product photos = visual spam, promo banners, and AI-generated images carry a dedicated "low-quality AI" flag). Fix: strip the copy down to pure knowledge and route all commerce through the linked-product slot; render 1440×1440 knowledge tables with PIL (not AI-generated) and self-check with RapidOCR. → [references/09-guanghe-review-lessons.md](references/09-guanghe-review-lessons.md)
+
+10. **If fully-cleaned content still gets rejected within a minute, check the account — stop burning edit attempts.**
+    Each post allows only one or two "edit & resubmit" rounds before it locks. Sub-minute rejection = machine review; if the copy has zero marketing and the images are fully re-rendered yet it still gets rejected instantly — and the browser shows an "account in abnormal state" badge — it is account-level risk control. Also covers the OCR+coordinate pitfalls of the edit-and-resubmit flow: named args for negative coordinates, char-counter as the ground truth for contenteditable replacement, the "Done" button in the upload-result dialog, and pixel-sampling radio buttons before publishing. → [references/09-guanghe-review-lessons.md](references/09-guanghe-review-lessons.md)
+
 ## Repository layout
 
 ```
@@ -51,7 +57,8 @@ taobao-shop-growth/
 │   ├── 05-automation.md         # AI automation: Product Manager + browser agent + scheduled jobs
 │   ├── 06-b2b-playbook.md       # High-ticket B2B play (lab instruments as example)
 │   ├── 07-product-video.md      # No-filming product video pipeline
-│   └── 08-geo-qianwen.md        # In-site GEO: Taobao AI search (Qianwen) quoting mechanics & optimization
+│   ├── 08-geo-qianwen.md        # In-site GEO: Taobao AI search (Qianwen) quoting mechanics & optimization
+│   └── 09-guanghe-review-lessons.md # Guanghe review survival: instant-reject triage / content red lines / rendered-image recipe / automation pitfalls
 ├── templates.md                 # Title formula / attribute specs / FAQ / content calendar / CS scripts / comment auto-replies
 └── publish/                     # Ready-to-post content-platform copy
     ├── xiaohongshu-notes.md     # Xiaohongshu (RED) notes ×4 (incl. pinned-comment templates)
@@ -99,6 +106,7 @@ Everything in this skill was validated on a real, live **lab-instruments shop** 
 
 | Version | Date | Highlights |
 |---------|------|------------|
+| v1.3 | 2026-09-21 | New 09 Guanghe review survival guide: itemized red lines for both rejection reasons (marketing copy / watermarks & low-quality AI), PIL-rendered knowledge-table recipe, edit-and-resubmit pitfalls (negative coords, counter-verified replacement, the "Done" dialog, pixel-sampled radios), and the "fully clean yet instantly rejected → check account status" triage; findings 8 → 10 |
 | v1.2 | 2026-09-20 | New 08 in-site AI search (Qianwen) GEO module: quoting mechanics, 134–167-char FAQ blocks, spec-phrase slots, ⚠️ category-change sales-wipe red line; 05 upgraded: CDP direct channel as the primary route + React iron rules + Qianniu v2 field notes + judge-model assist + local-OCR fallback, dropdown attributes revised to "automatable via CDP"; 07 CDP upload SOP; 04 marketing-copy red line / no-edit-after-publish / cold-start self-reply; templates spec-phrase template |
 | v1.1 | 2026-09-18 | 07 no-filming video pipeline; "three reliable agent instruction lines" + human-handoff list; Guanghe review consistency rule; "Ask Everyone" client-only marker; comment auto-reply scripts; bilingual README |
 | v1.0 | 2026-09-17 | First release: diagnosis / titles / attributes / content / automation + templates + social publishing packs |

@@ -54,6 +54,7 @@ Phase 0 诊断 ──→ Phase 1 商品提分 ──→ Phase 2 内容获客 ─
 按 [references/04-content-traffic.md](references/04-content-traffic.md) 执行四条线：
 逛逛科普内容（站内免费流量）→ 详情页表格化+FAQ（承接 AI 导购）→ 站外 GEO 长文（被豆包/千问/DeepSeek 等 AI 搜索引用）→ 问大家/评价维护（信任层）。
 站内还有更近的 AI 入口——淘宝自己的 AI 搜索（千问购物助手）会直接摘引商品规格组答案、销量小也能被摘引，按 [references/08-geo-qianwen.md](references/08-geo-qianwen.md) 优化（⚠️ 改类目有"销量清零"红线）。
+逛逛图文被拒（"营销信息过重"/"基础美观不达标：牛皮癣·水印·低质AI"）时，按 [references/09-guanghe-review-lessons.md](references/09-guanghe-review-lessons.md) 处置：正文清到纯知识、图片改程序渲染知识图表、编辑机会有限别乱消耗；全干净仍秒拒先查账号状态。
 
 ### Phase 3 · 批量自动化
 
