@@ -61,7 +61,7 @@ taobao-shop-growth/
 │   ├── 09-guanghe-review-lessons.md # Guanghe review survival: instant-reject triage / content red lines / rendered-image recipe / automation pitfalls
 │   ├── 10-bsk-channel.md        # bsk extension channel: full-auto recipes when CDP is down (safety gates / brand quirks / submit fallbacks)
 │   ├── 11-batch-title-jev-sop.md # Batch title enrichment SOP: Jev two-round decisions + sales-rank selection + positioning map
-│   └── 12-top-api-channel.md    # Taobao Open Platform (TOP) API channel: orders / price watch / CS knowledge base / reports (red-line mapping + no-credential fallbacks)
+│   └── 12-top-api-channel.md    # Taobao Open Platform (TOP) API channel: four modules + red-line mapping; ⚠️ official check: C-stores not eligible — long-term C-store fallback plays included
 ├── templates.md                 # Title formula / attribute specs / FAQ / content calendar / CS scripts / comment auto-replies
 └── publish/                     # Ready-to-post content-platform copy
     ├── xiaohongshu-notes.md     # Xiaohongshu (RED) notes ×4 (incl. pinned-comment templates)
@@ -109,6 +109,7 @@ Everything in this skill was validated on a real, live **lab-instruments shop** 
 
 | Version | Date | Highlights |
 |---------|------|------------|
+| v1.6 | 2026-09-23 | Reality check on module 12: per the official standard (updated 2025-08), merchant self-built apps require a company entity + Tmall seller account — **Taobao marketplace (C-store) sellers are not eligible for TOP API access**, and upgrading the developer account to enterprise does not help while the shop is a C-store. The "no-credential fallbacks" section is upgraded to the long-term C-store mainline (read-only competitor price watch / manual order screening / CS knowledge base first); the API content is retained for Tmall/enterprise stores. Also corrects the C-store premise of the CSDN taobao-integration promotional article; SKILL / 05 / bilingual READMEs synced |
 | v1.5 | 2026-09-23 | New 12 Taobao Open Platform (TOP) API channel: four-module mapping (order screening / competitor price watch / CS knowledge base / daily reports; red lines first — no auto product creation, price edits, or shipping on any channel), signup SOP + hmac-sha256 signing client, division of labor vs browser channels, and no-credential fallback plays; SKILL Phase 3 & quick-reference table, 05 channel overview synced |
 | v1.4 | 2026-09-23 | New 10 bsk extension channel full-auto recipes (session-expiry safety gates / brand auto-complete pitfalls & working recipe / JS native-click submit fallback / personalized probes); new 11 batch title enrichment SOP (sales-rank product selection / Jev two-round decision template / field-completion variant / positioning map deliverable); SKILL & README reference chain synced |
 | v1.3 | 2026-09-21 | New 09 Guanghe review survival guide: itemized red lines for both rejection reasons (marketing copy / watermarks & low-quality AI), PIL-rendered knowledge-table recipe, edit-and-resubmit pitfalls (negative coords, counter-verified replacement, the "Done" dialog, pixel-sampled radios), and the "fully clean yet instantly rejected → check account status" triage; findings 8 → 10 |
