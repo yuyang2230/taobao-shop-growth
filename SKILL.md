@@ -1,6 +1,6 @@
 ---
 name: taobao-shop-growth
-description: 淘宝/千牛个人小店获客优化全流程技能。覆盖店铺诊断、标题重写、必填属性补全（消除"流量受限"的根因）、逛逛/问大家内容运营、站外GEO引流、站内AI搜索（千问）GEO优化、免拍摄商品视频，以及用 AI（千牛商品管家 + CDP直连/浏览器Agent + 定时任务）批量自动执行。适用于已登录千牛卖家中心的淘宝C店，尤其适合B2B高客单类目。English triggers: grow my Taobao shop / rewrite product titles / fill required attributes / batch-edit Qianniu products / Taobao AI search GEO / shop diagnosis.
+description: 淘宝/千牛个人小店获客优化全流程技能。覆盖店铺诊断、标题重写、必填属性补全（消除"流量受限"的根因）、逛逛/问大家内容运营、站外GEO引流、站内AI搜索（千问）GEO优化、免拍摄商品视频，以及用 AI（千牛商品管家 + CDP/bsk直连 + 浏览器Agent + 定时任务）批量自动执行、含 Jev 决策引擎驱动的批量标题补词 SOP。适用于已登录千牛卖家中心的淘宝C店，尤其适合B2B高客单类目。English triggers: grow my Taobao shop / rewrite product titles / fill required attributes / batch-edit Qianniu products / Taobao AI search GEO / shop diagnosis.
 ---
 
 # 千牛小店获客增长
@@ -58,7 +58,7 @@ Phase 0 诊断 ──→ Phase 1 商品提分 ──→ Phase 2 内容获客 ─
 
 ### Phase 3 · 批量自动化
 
-按 [references/05-automation.md](references/05-automation.md)：优先级 商品管家（官方批量）> CDP 直连（React 后台自动化的主力通道）> 浏览器 Agent 双通道 > 定时任务。护栏、React 四条铁律和坑都在该文档里。
+按 [references/05-automation.md](references/05-automation.md)：优先级 商品管家（官方批量）> CDP 直连 > bsk 扩展通道（CDP 不可用时的主力，见 [references/10-bsk-channel.md](references/10-bsk-channel.md)）> 浏览器 Agent 双通道 > 定时任务。护栏、React 四条铁律和坑都在该文档里；批量标题补词走 [references/11-batch-title-jev-sop.md](references/11-batch-title-jev-sop.md)（Jev 两轮决策+三态安全闸）。
 
 ### Phase 4 · 每周复盘
 
@@ -76,7 +76,7 @@ Phase 0 诊断 ──→ Phase 1 商品提分 ──→ Phase 2 内容获客 ─
 | AI 搜索（千问）推荐里没你 / 想被摘引 | 标题吃需求词chips + FAQ块134~167字/条 + 可摘引短语独立成行 | 08 |
 | 商品挂错类目想改 | 停：跨一级类目=近30天销量清零；老链接不动，另发新链接挂正确类目 | 08 |
 | 成功页挂"缺少商品视频" | 免拍摄管线：主图→3D轮播/AI图生视频→QC→上传 | 07 |
-| 手动改不过来 | 商品管家批量 + CDP直连/Agent 自动化 | 05 |
+| 手动改不过来 | 商品管家批量 + CDP/bsk 直连自动化 | 05 / 10 / 11 |
 | 服务分偏低 | 旺旺响应速度人工提升（自动化做不了） | 01 |
 
 ## 案例与来源
