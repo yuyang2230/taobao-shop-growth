@@ -100,3 +100,12 @@ POST  = 提交后 page_state.url 必须含 success.htm + primaryId 对应
 - 2026-09-22 单日：13 件商品（标题×12 + 放料阀品牌/型号/导购标题字段补齐）全部提交成功 + 回读通过；Jev 决策 12 份原件存档。
 - 安全闸拦截会话失效事故 1 次（7 件全 SKIP 零误操作）。
 - 证据规模：219 文件（JSON 三态/截图/SERP 快照/Jev 决策）。
+
+## 8. 09-23 追加坑位（v1.7）
+
+1. **BROWSER-SKILL-OVERLAY 挡提交按钮**：click selector 报 ok 但页面无反应时，先 evaluate `elementFromPoint(按钮中心)` 查命中——若命中 `BROWSER-SKILL-OVERLAY`（bsk 自己的高亮层，移除后会再生），改用 JS 原生兜底：`btn.scrollIntoView({block:'center'}); btn.click()`——React 按钮实测可触发（已两次走通提交）。
+2. **宝贝标题框 fill 不持久化（重大缺口）**：`fill → 回读 DOM 值正确 → 提交跳 success.htm → 重载回读仍是旧标题`。click 触发→fill→press Enter→立即提交的完整配方也复现同样失败（815462607405 连败 2 次后按红线停手）。**对比：导购标题框（input，无字数联动组件）fill 一次成功**。疑似标题框的 60 字节计数器组件持有独立 React state，DOM value 与 state 脱钩。待解方向：evaluate nativeInputValueSetter + dispatchEvent、或 insertText 逐字、或 UI 真实键入。**在解法验证前，标题修改不要用本通道批量跑。**
+3. **品牌联想框**：fill「予明」后 `.options-content` 联想菜单未出现（旧配方失效场景），React 丢弃输入值——品牌填写必须「fill 后当场点中联想项」，两步间的任何延迟/重渲染都会丢。
+4. **类目属性 schema 折叠**：未填字段（品牌/产地/仪器类型等）会被页面收进「展开补充更多信息」，点击该按钮（含 snapshot ref 真实点击）实测无展开效果——字段被折叠后无稳定唤出配方。给低销量件补长尾字段前先确认字段可见。
+5. **列表页多选筛选器**：见 13 号 §3（菜单项 JS click 只挂 tag 不查询，须点「搜索」；多选=AND 叠加）。
+6. **fromAIPublish=true 陷阱补充**：导航到 `publish.htm?itemId={ID}` 后淘宝会自动追加该参数——不代表进了复制发布页，**判定标准仍是标题框是否载入老品原文**（本次多件实测自动追加但均为编辑页）。

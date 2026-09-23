@@ -60,7 +60,7 @@ Phase 0 诊断 ──→ Phase 1 商品提分 ──→ Phase 2 内容获客 ─
 
 按 [references/05-automation.md](references/05-automation.md)：优先级 商品管家（官方批量）> CDP 直连 > bsk 扩展通道（CDP 不可用时的主力，见 [references/10-bsk-channel.md](references/10-bsk-channel.md)）> 浏览器 Agent 双通道 > 定时任务。护栏、React 四条铁律和坑都在该文档里；批量标题补词走 [references/11-batch-title-jev-sop.md](references/11-batch-title-jev-sop.md)（Jev 两轮决策+三态安全闸）。
 
-**数据型任务的官方通道与现实核查**：订单筛查、竞品价格监控、运营日报、7×24 客服知识库这类活不走浏览器，对应的是淘宝开放平台 TOP API（[references/12-top-api-channel.md](references/12-top-api-channel.md)）——但官方现行标准（2025-08 更新）要求**公司主体 + 天猫卖家，淘宝 C 店不支持接入**。C 店卖家直接用该篇的"C 店长期打法"（竞品只读监控/订单人工筛查/话术知识库先行）；天猫或企业店卖家再按该篇开通 TOP API，且只开"查"和只读分析，发新品/改价/发货仍守黄金护栏。
+**数据型任务的官方通道与现实核查**：订单筛查、竞品价格监控、运营日报、7×24 客服知识库这类活不走浏览器，对应的是淘宝开放平台 TOP API（[references/12-top-api-channel.md；质量分审计与扶优分复查走 references/13-quality-score-audit.md](references/12-top-api-channel.md)）——但官方现行标准（2025-08 更新）要求**公司主体 + 天猫卖家，淘宝 C 店不支持接入**。C 店卖家直接用该篇的"C 店长期打法"（竞品只读监控/订单人工筛查/话术知识库先行）；天猫或企业店卖家再按该篇开通 TOP API，且只开"查"和只读分析，发新品/改价/发货仍守黄金护栏。
 
 ### Phase 4 · 每周复盘
 
