@@ -58,7 +58,10 @@ taobao-shop-growth/
 │   ├── 06-b2b-playbook.md       # High-ticket B2B play (lab instruments as example)
 │   ├── 07-product-video.md      # No-filming product video pipeline
 │   ├── 08-geo-qianwen.md        # In-site GEO: Taobao AI search (Qianwen) quoting mechanics & optimization
-│   └── 09-guanghe-review-lessons.md # Guanghe review survival: instant-reject triage / content red lines / rendered-image recipe / automation pitfalls
+│   ├── 09-guanghe-review-lessons.md # Guanghe review survival: instant-reject triage / content red lines / rendered-image recipe / automation pitfalls
+│   ├── 10-bsk-channel.md        # bsk extension channel: full-auto recipes when CDP is down (safety gates / brand quirks / submit fallbacks)
+│   ├── 11-batch-title-jev-sop.md # Batch title enrichment SOP: Jev two-round decisions + sales-rank selection + positioning map
+│   └── 12-top-api-channel.md    # Taobao Open Platform (TOP) API channel: orders / price watch / CS knowledge base / reports (red-line mapping + no-credential fallbacks)
 ├── templates.md                 # Title formula / attribute specs / FAQ / content calendar / CS scripts / comment auto-replies
 └── publish/                     # Ready-to-post content-platform copy
     ├── xiaohongshu-notes.md     # Xiaohongshu (RED) notes ×4 (incl. pinned-comment templates)
@@ -106,6 +109,8 @@ Everything in this skill was validated on a real, live **lab-instruments shop** 
 
 | Version | Date | Highlights |
 |---------|------|------------|
+| v1.5 | 2026-09-23 | New 12 Taobao Open Platform (TOP) API channel: four-module mapping (order screening / competitor price watch / CS knowledge base / daily reports; red lines first — no auto product creation, price edits, or shipping on any channel), signup SOP + hmac-sha256 signing client, division of labor vs browser channels, and no-credential fallback plays; SKILL Phase 3 & quick-reference table, 05 channel overview synced |
+| v1.4 | 2026-09-23 | New 10 bsk extension channel full-auto recipes (session-expiry safety gates / brand auto-complete pitfalls & working recipe / JS native-click submit fallback / personalized probes); new 11 batch title enrichment SOP (sales-rank product selection / Jev two-round decision template / field-completion variant / positioning map deliverable); SKILL & README reference chain synced |
 | v1.3 | 2026-09-21 | New 09 Guanghe review survival guide: itemized red lines for both rejection reasons (marketing copy / watermarks & low-quality AI), PIL-rendered knowledge-table recipe, edit-and-resubmit pitfalls (negative coords, counter-verified replacement, the "Done" dialog, pixel-sampled radios), and the "fully clean yet instantly rejected → check account status" triage; findings 8 → 10 |
 | v1.2 | 2026-09-20 | New 08 in-site AI search (Qianwen) GEO module: quoting mechanics, 134–167-char FAQ blocks, spec-phrase slots, ⚠️ category-change sales-wipe red line; 05 upgraded: CDP direct channel as the primary route + React iron rules + Qianniu v2 field notes + judge-model assist + local-OCR fallback, dropdown attributes revised to "automatable via CDP"; 07 CDP upload SOP; 04 marketing-copy red line / no-edit-after-publish / cold-start self-reply; templates spec-phrase template |
 | v1.1 | 2026-09-18 | 07 no-filming video pipeline; "three reliable agent instruction lines" + human-handoff list; Guanghe review consistency rule; "Ask Everyone" client-only marker; comment auto-reply scripts; bilingual README |
