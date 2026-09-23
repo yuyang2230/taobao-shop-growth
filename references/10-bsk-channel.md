@@ -104,7 +104,7 @@ POST  = 提交后 page_state.url 必须含 success.htm + primaryId 对应
 ## 8. 09-23 追加坑位（v1.7）
 
 1. **BROWSER-SKILL-OVERLAY 挡提交按钮**：click selector 报 ok 但页面无反应时，先 evaluate `elementFromPoint(按钮中心)` 查命中——若命中 `BROWSER-SKILL-OVERLAY`（bsk 自己的高亮层，移除后会再生），改用 JS 原生兜底：`btn.scrollIntoView({block:'center'}); btn.click()`——React 按钮实测可触发（已两次走通提交）。
-2. **宝贝标题框 fill 不持久化（重大缺口）**：`fill → 回读 DOM 值正确 → 提交跳 success.htm → 重载回读仍是旧标题`。click 触发→fill→press Enter→立即提交的完整配方也复现同样失败（815462607405 连败 2 次后按红线停手）。**对比：导购标题框（input，无字数联动组件）fill 一次成功**。疑似标题框的 60 字节计数器组件持有独立 React state，DOM value 与 state 脱钩。待解方向：evaluate nativeInputValueSetter + dispatchEvent、或 insertText 逐字、或 UI 真实键入。**在解法验证前，标题修改不要用本通道批量跑。**
+2. **宝贝标题框 fill 不持久化（✅ 09-23 深夜已结案：解法=CDP 真实键入）**：bsk 通道三种姿势全部失败——`fill`、`click→fill→Enter→立即提交`、`nativeInputValueSetter+input/change 事件`（DOM 值与 60 字节计数器都显示 36/60，提交跳 success.htm，重载回读仍是旧标题）。**计数器同步≠React 表单 state 同步**，勿以计数器当提交依据。**已验证正解：playwright-core connectOverCDP(9222) → locator.click 聚焦 → Control+A → keyboard.insertText(新标题) → locator 真实点击提交 → success.htm → 重载回读**（815462607405 实测 PERSISTED-OK）。配方脚本：goal 群 js/title_cdp.js。要点：①千牛 v2 编辑页任何写入类操作一律 CDP（与既有结论一致）；②点击前先 evaluate 移除 `browser-skill-overlay`（bsk 高亮层会拦 Playwright 指针事件，bsk session stop 超时无妨）；③导购标题框（无字数联动）bsk fill 仍可用。
 3. **品牌联想框**：fill「予明」后 `.options-content` 联想菜单未出现（旧配方失效场景），React 丢弃输入值——品牌填写必须「fill 后当场点中联想项」，两步间的任何延迟/重渲染都会丢。
 4. **类目属性 schema 折叠**：未填字段（品牌/产地/仪器类型等）会被页面收进「展开补充更多信息」，点击该按钮（含 snapshot ref 真实点击）实测无展开效果——字段被折叠后无稳定唤出配方。给低销量件补长尾字段前先确认字段可见。
 5. **列表页多选筛选器**：见 13 号 §3（菜单项 JS click 只挂 tag 不查询，须点「搜索」；多选=AND 叠加）。
