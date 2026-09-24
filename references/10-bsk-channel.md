@@ -122,3 +122,17 @@ POST  = 提交后 page_state.url 必须含 success.htm + primaryId 对应
 - 画质门槛：720x720/低码率会被判「画质不足」；**1080x1080 + CRF17 + 2.5M 码率**通过。生成器 gen_coverfirst.js（头帧=完整产品图+白底缓推，弃细线起旋封面）。
 - 商品视频**禁用 Agnes 图生视频**：实测把白色四氟阀脑补成镀铬金属件（货不对版）。
 
+## 10. 「主图无商品主体」修复 SOP + bsk 文件上传边界（09-24）
+
+**巡检判定「第一张主图缺失商品主体，或被文案完全遮挡」的修复**：
+1. 下载当前首张主图（编辑页 1:1主图 wrapper 内 img src，去 `_320x320q80_.webp` 后缀取原图）目检定性：纯文字图/文案盖产品=确诊。
+2. PIL 裁剪自家原图出干净版：产品主体居中裁出 → 白底 pad 成 800x800 → quality 92（Jev 审图通过后使用）。
+3. 上传：编辑页 1:1主图区「上传图片」→ 选择图片弹窗（sucai iframe，**bsk snapshot 可穿透**：本地上传/搜索框/图卡 refs 齐全）。
+
+**bsk 文件上传的硬边界**：
+- `bsk upload` 对隐藏 `input[type=file]` 报 "no visible geometry"；对可见 drop target 报 "Not allowed"（**扩展缺 Allow access to file URLs 权限**）。修法：chrome://extensions → BrowserSkill → 详情 → 允许访问文件网址（一次性，需手动或扩展页可自动化时自愈）。
+- 剪贴板贴图绕过失败：PowerShell Clipboard::SetImage 放的是 DIB，网页 paste 事件不认（需 PNG 格式或 FileDropList）。
+- **bsk 会话高频死亡（2-3 分钟）应对**：把全流程写成**单脚本串行链**（execFileSync 顺序执行所有 bsk 子命令，共享同一会话窗口），失败即截图存证；严禁多轮往返分步操作。
+
+**「主图无商品主体」巡检项与编辑页建议面板是两套系统**：编辑页 建议(0)/双分100 不代表巡检不判主图文案遮挡；以巡检弹窗+编辑页建议双源为准。
+
