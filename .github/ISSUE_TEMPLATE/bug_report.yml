@@ -1,0 +1,38 @@
+name: 🐛 问题反馈
+description: 技能执行报错、流程跑不通、结论与实际不符
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈！请先确认使用的是最新 main 分支的技能文件。
+  - type: textarea
+    id: skill
+    attributes:
+      label: 涉及的技能 / 文件
+      placeholder: 例如：诊断 / 标题优化 / 自动化批量 等，附技能文件路径
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: 问题描述与复现步骤
+      description: 什么店铺类目、哪个环节、按什么步骤触发的
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: 运行环境
+      placeholder: 例：Claude Code / OpenCode / Qoder + 千牛版本
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望结果 vs 实际结果
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: 截图 / 报错信息
+      description: 直接拖拽图片到这里
