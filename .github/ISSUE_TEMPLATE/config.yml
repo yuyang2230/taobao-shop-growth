@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📖 方法论与实测说明先看 README
+    url: https://github.com/yuyang2230/taobao-shop-growth#readme
+    about: 案例店、✅/⚠️/❌ 标记含义、使用前提 README 里都有
+  - name: English README
+    url: https://github.com/yuyang2230/taobao-shop-growth/blob/main/README.en.md
+    about: English speakers start here
