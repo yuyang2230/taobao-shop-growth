@@ -1,0 +1,23 @@
+name: ✨ 新技能 / 改进建议
+description: 希望增加的获客玩法或流程改进
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: 想达成的获客目标
+      description: 解决什么问题？流量、转化、还是效率？
+    validations:
+      required: true
+  - type: textarea
+    id: how
+    attributes:
+      label: 期望的技能形态
+      placeholder: 例如：批量改写标题属性并灰度对比的技能
+    validations:
+      required: true
+  - type: textarea
+    id: reference
+    attributes:
+      label: 参考做法 / 实测案例（可选）
+      description: 在真实店铺验证过思路的话欢迎贴数据——带实测的提议最容易被采纳
